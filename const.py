@@ -11,6 +11,7 @@ DEFAULT_MANUAL_RUN_MINS = 10
 
 # Keys used in the API JSON
 KEY_DEVICE_ID = "deviceId"
+KEY_IMAGE_URL = "imageUrl"
 KEY_DEVICES = "devices"
 KEY_ENABLED = "enabled"
 KEY_EXTERNAL_ID = "externalId"

@@ -19,6 +19,7 @@ from .const import (
     CONF_MANUAL_RUN_MINS,
     DEFAULT_NAME,
     DOMAIN as DOMAIN_RACHIO,
+    KEY_IMAGE_URL,
     KEY_DEVICE_ID,
     KEY_ENABLED,
     KEY_ID,
@@ -188,6 +189,7 @@ class RachioZone(RachioSwitch):
         self._zone_number = data[KEY_ZONE_NUMBER]
         self._zone_enabled = data[KEY_ENABLED]
         self._manual_run_time = manual_run_time
+        self._entity_picture = data[KEY_IMAGE_URL] if KEY_IMAGE_URL in data else None
         self._summary = str()
         super().__init__(controller)
 
@@ -222,6 +224,11 @@ class RachioZone(RachioSwitch):
     def zone_is_enabled(self) -> bool:
         """Return whether the zone is allowed to run."""
         return self._zone_enabled
+
+    @property
+    def entity_picture(self):
+        """Return the entity picture to use in the frontend, if any."""
+        return self._entity_picture
 
     @property
     def state_attributes(self) -> dict:
