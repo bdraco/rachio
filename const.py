@@ -1,5 +1,8 @@
 """Constants for rachio."""
 
+import http.client
+import ssl
+
 DEFAULT_NAME = "Rachio"
 
 DOMAIN = "rachio"
@@ -29,3 +32,11 @@ KEY_USERNAME = "username"
 KEY_ZONE_ID = "zoneId"
 KEY_ZONE_NUMBER = "zoneNumber"
 KEY_ZONES = "zones"
+
+# Yes we really do get all these exceptions (hopefully rachiopy switches to requests)
+RACHIO_API_EXCEPTIONS = (
+    http.client.HTTPException,
+    ssl.SSLError,
+    OSError,
+    AssertionError,
+)
