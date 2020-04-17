@@ -107,6 +107,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         hass, entry
     )
     rachio.webhook_url = webhook_url
+    _LOGGER.debug("Registered webhook url: %s", webhook_url)
 
     person = RachioPerson(rachio, entry)
 

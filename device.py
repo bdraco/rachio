@@ -116,6 +116,7 @@ class RachioIro:
                 self._webhooks = self.rachio.notification.getDeviceWebhook(
                     self.controller_id
                 )[1]
+            _LOGGER.debug("Rachio has the following webhooks registered: %s", self._webhooks)
             for webhook in self._webhooks:
                 if (
                     webhook[KEY_EXTERNAL_ID].startswith(WEBHOOK_CONST_ID)
